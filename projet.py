@@ -43,5 +43,5 @@ elif periode == "La période entière":
 elif periode == "Plusieurs mois":
     mois_voulus = st.multiselect('Quels mois souhaites-tu arrondir ?', list(range(df_releve_filtre['mois'].min(), df_releve_filtre['mois'].max() + 1)))
     for i in mois_voulus:
-        print(i)
+        st.write(i)
            
