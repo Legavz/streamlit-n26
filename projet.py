@@ -5,9 +5,11 @@ import streamlit as st
 from PIL import Image
 
 
-"""
-Bienvenue sur les petits gestes !
+st.image("C:/Users/Alexis/Documents/Python/Projets/N26/solidarite.jpg")
 
+st.title("Bienvenue sur les petits gestes !")
+
+"""
 Le calculateur de vos arrondis mensuels qui va vous permettre de contribuer au bien commun :)
 
 Pour cela, il vous suffit simplement de télécharger votre relevé de transactions sur N26 et de le mettre dans l'app
