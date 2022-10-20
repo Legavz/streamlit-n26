@@ -15,11 +15,11 @@ Pour cela, il vous suffit simplement de télécharger votre relevé de transacti
 
 uploaded_file = st.file_uploader("Sélectionnez votre relevé")
 
-if uploaded_file != 0:
-        df_releve = pd.read_csv(uploaded_file)
-        df_releve_filtre = df_releve[df_releve["Montant (EUR)"] < 0]
-        df_releve_filtre["Arrondis_depenses"] = df_releve_filtre["Montant (EUR)"].apply(lambda x : math.ceil(-x) + x)
-        df_releve_filtre['mois'] = pd.DatetimeIndex(df_releve_filtre['Date']).month
+if uploaded_file is not None:
+    df_releve = pd.read_csv(uploaded_file)
+    df_releve_filtre = df_releve[df_releve["Montant (EUR)"] < 0]
+    df_releve_filtre["Arrondis_depenses"] = df_releve_filtre["Montant (EUR)"].apply(lambda x : math.ceil(-x) + x)
+    df_releve_filtre['mois'] = pd.DatetimeIndex(df_releve_filtre['Date']).month
 
 periode = st.selectbox(
         'Quelle période souhaitez-vous arrondir',
