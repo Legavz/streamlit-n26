@@ -15,7 +15,7 @@ Pour cela, il vous suffit simplement de télécharger votre relevé de transacti
 
 uploaded_file = st.file_uploader("Sélectionnez votre relevé")
 
-if uploaded_file is not null:
+if uploaded_file != 0:
         df_releve = pd.read_csv(uploaded_file)
         df_releve_filtre = df_releve[df_releve["Montant (EUR)"] < 0]
         df_releve_filtre["Arrondis_depenses"] = df_releve_filtre["Montant (EUR)"].apply(lambda x : math.ceil(-x) + x)
