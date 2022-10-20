@@ -2,6 +2,11 @@ import pandas as pd
 import random
 import math
 import streamlit as st
+from PIL import Image
+
+
+image = Image.open("C:/Users/Alexis/Documents/Python/Projets/N26/solidarite.jpg")
+st.image(image, caption='Construisons ensemble l'avenir')
 
 
 """
@@ -27,4 +32,4 @@ mois = st.number_input(label = 'Quel mois arrondir ?', min_value = 1, max_value 
 montant = df_releve_filtre[df_releve_filtre['mois'] == mois]["Arrondis_depenses"].sum()
 montant = round(montant, 1)
 
-st.write("Le montant de ton don s'élève à", montant)
+st.write("Le montant de ton don s'élève à", montant, "euros")
