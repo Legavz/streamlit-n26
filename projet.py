@@ -4,7 +4,7 @@ import math
 import streamlit as st
 from PIL import Image
 
-def montant_defiscalise
+
 """
 Bienvenue sur les petits gestes !
 
