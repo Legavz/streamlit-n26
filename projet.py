@@ -7,13 +7,12 @@ import streamlit as st
 """
 Bienvenue sur les petits gestes !
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
-In the meantime, below is an example of what you can do with just a few lines of code:
+Le calculateur de vos arrondis mensuels qui va vous permettre de contribuer au bien commun :)
+
+Pour cela, il vous suffit simplement de télécharger votre relevé de transactions sur N26 et de le mettre dans l'app
 """
 
-uploaded_file = st.file_uploader("Sélectionnez un fichier")
+uploaded_file = st.file_uploader("Sélectionnez votre relevé")
 
 df_releve = pd.read_csv(uploaded_file)
 
@@ -27,4 +26,4 @@ mois = st.number_input(label = 'Quel mois arrondir ?', min_value = 1, max_value 
 
 montant = df_releve_filtre[df_releve_filtre['mois'] == mois]["Arrondis_depenses"].sum()
 
-st.write(montant)
+st.write("Le montant de ton don s'élève à", montant)
