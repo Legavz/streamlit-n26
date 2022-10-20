@@ -3,7 +3,7 @@ import random
 import math
 import streamlit as st
 
-df_releve = pd.read_csv("C:/Users/Alexis/Documents/Python/Projets/N26/releve_17_10.csv")
+df_releve = pd.read_csv("C:/Users/Alexis/Documents/Python/Projets/N26/releve_17_10")
 
 df_releve_filtre = df_releve[df_releve["Montant (EUR)"] < 0]
 
