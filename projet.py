@@ -45,6 +45,7 @@ elif periode == "Plusieurs mois":
     montant = 0
     for i in mois_voulus:
         montant = montant + df_releve_filtre[df_releve_filtre['mois'] == i]["Arrondis_depenses"].sum()
+    montant = round(montant, 1)
     montant_defiscalise = round(montant * 0.33, 1)
     st.write("Le montant de ton don s'élève à", montant, "€")
     st.write("En realité, cela ne te coutera que", montant_defiscalise, "€")
