@@ -40,5 +40,5 @@ elif periode == "La période entière":
     montant_defiscalise = round(montant * 0.33, 1)
     st.write("Le montant de ton don s'élève à", montant, "€")
     st.write("En realité, cela ne te coutera que", montant_defiscalise, "€")
-elif periode == "Plusieurs mois" 
+elif periode == "Plusieurs mois":
     mois_voulus = st.multiselect('Quels mois souhaites-tu arrondir ?', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
