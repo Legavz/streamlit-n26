@@ -25,5 +25,6 @@ df_releve_filtre['mois'] = pd.DatetimeIndex(df_releve_filtre['Date']).month
 mois = st.number_input(label = 'Quel mois arrondir ?', min_value = 1, max_value = 12)
 
 montant = df_releve_filtre[df_releve_filtre['mois'] == mois]["Arrondis_depenses"].sum()
+montant = round(montant, 1)
 
 st.write("Le montant de ton don s'élève à", montant)
