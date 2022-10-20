@@ -23,9 +23,20 @@ df_releve_filtre["Arrondis_depenses"] = df_releve_filtre["Montant (EUR)"].apply(
 
 df_releve_filtre['mois'] = pd.DatetimeIndex(df_releve_filtre['Date']).month
 
-mois = st.number_input(label = 'Quel mois arrondir ?', min_value = df_releve_filtre['mois'].min(), max_value = df_releve_filtre['mois'].max())
+periode = st.selectbox(
+    'Quelle période souhaitez-vous arrondir',
+    ('Un mois seulement', 'Plusieurs mois', 'La période entière'))
 
-montant = df_releve_filtre[df_releve_filtre['mois'] == mois]["Arrondis_depenses"].sum()
-montant = round(montant, 1)
-
-st.write("Le montant de ton don s'élève à", montant, "euros")
+if periode == "Un mois seulement":
+  mois = st.number_input(label = 'Quel mois arrondir ?', min_value = df_releve_filtre['mois'].min(), max_value = df_releve_filtre['mois'].max())
+  montant = df_releve_filtre[df_releve_filtre['mois'] == mois]["Arrondis_depenses"].sum()
+  montant = round(montant, 1)
+  montant_defiscalise = montant * 0,33
+  st.write("Le montant de ton don s'élève à", montant, "euros")
+  st.write("En realité, cela ne te coutera que", montant_defiscalise)
+ elif periode = "La période entière":
+  montant = df_releve_filtre["Arrondis_depenses"].sum()
+  montant = round(montant, 1)
+  montant_defiscalise = montant * 0,33
+  st.write("Le montant de ton don s'élève à", montant, "euros")
+  st.write("En realité, cela ne te coutera que", montant_defiscalise)
