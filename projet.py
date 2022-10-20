@@ -6,7 +6,7 @@ from PIL import Image
 
 
 image = Image.open("C:/Users/Alexis/Documents/Python/Projets/N26/solidarite.jpg")
-st.image(image, caption='Construisons ensemble l'avenir')
+st.image(image, caption="Construisons ensemble l'avenir")
 
 
 """
