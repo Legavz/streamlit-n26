@@ -1,10 +1,14 @@
 import pandas as pd
 import random
-import numpy as np
+import math
 import streamlit as st
 
-df = pd.DataFrame(
-   np.random.randn(50, 20),
-   columns=('col %d' % i for i in range(20)))
+df_releve = pd.read_csv("C:/Users/Alexis/Documents/Python/Projets/N26/releve_17_10.csv")
 
-st.dataframe(df)  # Same as st.write(df)
+df_releve_filtre = df_releve[df_releve["Montant (EUR)"] < 0]
+
+df_releve_filtre["Arrondis_depenses"] = df_releve_filtre["Montant (EUR)"].apply(lambda x : math.ceil(-x) + x)
+
+df_releve_filtre['mois'] = pd.DatetimeIndex(df_releve_filtre['Date']).month
+
+st.dataframe(df_releve_filtre)  # Same as st.write(df)
