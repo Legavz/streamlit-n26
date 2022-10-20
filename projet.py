@@ -41,4 +41,5 @@ elif periode == "La période entière":
     st.write("Le montant de ton don s'élève à", montant, "€")
     st.write("En realité, cela ne te coutera que", montant_defiscalise, "€")
 elif periode == "Plusieurs mois":
-    mois_voulus = st.multiselect('Quels mois souhaites-tu arrondir ?', list(range(df_releve_filtre['mois'].min(), df_releve_filtre['mois'].max() + 1))
+    mois_voulus = st.multiselect('Quels mois souhaites-tu arrondir ?', list(range(df_releve_filtre['mois'].min(), df_releve_filtre['mois'].max() + 1)))
+    st.write(mois_voulus)
