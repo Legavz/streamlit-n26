@@ -13,7 +13,8 @@ df_releve_filtre["Arrondis_depenses"] = df_releve_filtre["Montant (EUR)"].apply(
 
 df_releve_filtre['mois'] = pd.DatetimeIndex(df_releve_filtre['Date']).month
 
-montant = df_releve_filtre[df_releve_filtre['mois'] == 3]["Arrondis_depenses"].sum()
+mois = input("Quel mois souhaiez-vous arrondir ?")
 
-st.dataframe(df_releve_filtre)  # Same as st.write(df)
+montant = df_releve_filtre[df_releve_filtre['mois'] == mois]["Arrondis_depenses"].sum()
+
 st.write(montant)
