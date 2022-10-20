@@ -5,10 +5,6 @@ import streamlit as st
 from PIL import Image
 
 
-image = Image.open("C:/Users/Alexis/Documents/Python/Projets/N26/solidarite.jpg")
-st.image(image, caption="Construisons ensemble l'avenir")
-
-
 """
 Bienvenue sur les petits gestes !
 
@@ -27,7 +23,7 @@ df_releve_filtre["Arrondis_depenses"] = df_releve_filtre["Montant (EUR)"].apply(
 
 df_releve_filtre['mois'] = pd.DatetimeIndex(df_releve_filtre['Date']).month
 
-mois = st.number_input(label = 'Quel mois arrondir ?', min_value = 1, max_value = 12)
+mois = st.number_input(label = 'Quel mois arrondir ?', min_value = df_releve_filtre['mois'].min(), max_value = df_releve_filtre['mois'].max())
 
 montant = df_releve_filtre[df_releve_filtre['mois'] == mois]["Arrondis_depenses"].sum()
 montant = round(montant, 1)
