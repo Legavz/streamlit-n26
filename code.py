@@ -2,10 +2,6 @@ import pandas as pd
 import random
 import math
 import streamlit as st
-from PIL import Image
-
-
-st.image("C:/Users/Alexis/Documents/Python/Projets/N26/solidarite.jpg")
 
 st.title("Bienvenue sur les petits gestes !")
 
